@@ -9,6 +9,9 @@ import { carouselImage } from '../models/carouselImage.interface';
 export class CarouselComponent {
   selectedIndex = 0;
   @Input() dots = true;
+  @Input() autoSlide = false;
+  @Input() sliderInterval = 3000;
+  timer: number;
 
   images: carouselImage[] = [
     {
@@ -24,6 +27,12 @@ export class CarouselComponent {
       imageAlt: 'wolf',
     },
   ];
+
+  ngOnInit(): void {
+    if (this.autoSlide) {
+      this.startSlide();
+    }
+  }
 
   //select image clicking on dot
   selectImage(index: number): void {
@@ -42,5 +51,15 @@ export class CarouselComponent {
     this.selectedIndex === this.images.length - 1
       ? (this.selectedIndex = 0)
       : this.selectedIndex++;
+  }
+
+  startSlide() {
+    this.timer = window.setInterval(() => {
+      this.onNextClick();
+    }, this.sliderInterval);
+  }
+
+  stopSlide() {
+    clearInterval(this.timer);
   }
 }
