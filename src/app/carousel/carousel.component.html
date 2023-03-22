@@ -1,4 +1,9 @@
-<div class="carousel" *ngIf="images && images.length > 0">
+<div
+  class="carousel"
+  *ngIf="images && images.length > 0"
+  (mouseover)="stopSlide()"
+  (mouseout)="startSlide()"
+>
   <img
     class="carousel__img fade"
     *ngFor="let image of images; let i = index"
