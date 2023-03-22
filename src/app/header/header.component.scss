@@ -1,0 +1,43 @@
+@use "../variables.scss";
+
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  //   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+  background-color: variables.$headerBlack;
+  color: #fff;
+
+  .logo {
+    &__item {
+      margin: 0;
+    }
+  }
+
+  &__nav {
+    width: 300px;
+
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+
+      &-item {
+        list-style: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      &-item:hover {
+        color: variables.$hoverRed;
+      }
+    }
+  }
+
+  &__input {
+    padding: 6px 12px;
+    border-radius: 8px;
+    outline: none;
+  }
+}
