@@ -1,0 +1,16 @@
+<div class="genres">
+  <h2 class="genres__title">Choose by genres</h2>
+  <div class="genres__wrapper">
+    <div
+      class="genres__wrapper-genre"
+      *ngFor="let genre of genres; let i = index"
+    >
+      <img
+        class="genres__wrapper-genre-img"
+        [src]="genre.image.imageSrc"
+        [alt]="genre.image.imageAlt"
+      />
+      <h3 class="genres__wrapper-genre-title">{{ genre.title }}</h3>
+    </div>
+  </div>
+</div>
